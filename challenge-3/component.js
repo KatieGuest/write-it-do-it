@@ -1,6 +1,12 @@
 import React from 'react';
 
 // finish writing the DogList functional component here
-const DogList = undefined;
+function DogList(props) {
+  return (
+    <div>
+      <ul>{props.dogs.map(el => <li key={el.id}>{el.name}</li>)}</ul>
+    </div>
+  );
+}
 
 export default DogList;
