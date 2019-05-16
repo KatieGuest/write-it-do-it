@@ -1,28 +1,28 @@
 /* eslint-disable no-unused-expressions */
-'use strict';
+"use strict";
 
 // Assertions
-const chai = require('chai');
+const chai = require("chai");
 const expect = chai.expect;
-const chaiThings = require('chai-things');
+const chaiThings = require("chai-things");
 chai.use(chaiThings);
 
 // Redux
-import store, { gotDogs } from './redux';
+import store, { gotDogs } from "./redux";
 
-describe('Challenge 4 - Redux Store', () => {
+describe("Challenge 4 - Redux Store", () => {
   // ------------------------------------
   // ----------- TEST SETUP -------------
   // -----------------------------------
   const doggies = [
     {
       id: 1,
-      name: 'Cody',
+      name: "Cody",
       age: 5
     },
     {
       id: 2,
-      name: 'Spike',
+      name: "Spike",
       age: 1
     }
   ];
@@ -32,36 +32,37 @@ describe('Challenge 4 - Redux Store', () => {
   // ------------------------------------
   // you can use `newState` and `doggies`
   // to help make assertions!
-  describe('Redux store action creator and reducer', () => {
-    xit('has an action creator that returns an object', () => {
+  describe("Redux store action creator and reducer", () => {
+    xit("has an action creator that returns an object", () => {
       const returnValue = gotDogs(doggies);
       // you may want to make use of typeof:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(returnValue).to.equal({});
     });
 
-    xit('the action creator returns an object with `type` and `dogs` fields', () => {
+    xit("the action creator returns an object with `type` and `dogs` fields", () => {
       const returnValue = gotDogs(doggies);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(returnValue.type).to.exist;
+      expect(returnValue.dogs).to.exist;
     });
 
-    xit('the `dogs` field of the action should match the dogs passed in to the action creator', () => {
+    xit("the `dogs` field of the action should match the dogs passed in to the action creator", () => {
       const returnValue = gotDogs(doggies);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(returnValue.dogs).to.equal(doggies);
     });
 
-    xit('the reducer returns a new state with dogs after dispatching `addDogs`', () => {
+    xit("the reducer returns a new state with dogs after dispatching `addDogs`", () => {
       store.dispatch(gotDogs(doggies));
       const newState = store.getState();
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(newState).to.have.length(2);
     });
   });
 });
