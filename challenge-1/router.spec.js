@@ -41,7 +41,7 @@ describe("Challenge 1 - Express route", () => {
 
       // your expect assertion here...
       expect(response.body.message).to.exist;
-      expect(response.body.field).to.exist;
+      expect(response.body.data).to.exist;
     });
 
     xit("message field of response should be `Success`", async () => {
